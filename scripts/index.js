@@ -11,12 +11,18 @@
     console.info(searchPid);
 
     getMarketData();
-    
+
     function getMarketData () {
         $.get("/api/public/market/"+searchPid).then(function (data) {
             console.info(data);
         }, function (err) {
             console.info(err);
+
+            layer.open({
+                type: 1,
+                area: ['400px', '200px'],
+                content: "没找到对应数据，请联系管理员哦～"
+            });
         });
     }
 })(jQuery);
