@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Tigerwit</title>
     <link rel="stylesheet" type="text/css" href="styles/layer.css">
+    <link rel="stylesheet" type="text/css" media="all" href="styles/daterangepicker.css" />
     <link rel="stylesheet" type="text/css" href="styles/index.css">
 </head>
 <body>
@@ -14,14 +15,17 @@
             <div class="sub-tit">博大EDM 22XN</div>
             <div class="select-form">
                 <span>注册起止时间</span>
-                <input type="text">
-                <span>查询</span>
+                <input type="text" id="demo" class="form-control" placeholder="YYYY-MM-DD">
+                <input type="text" class="form-control" placeholder="输入关键字查询">
+                <button class="btn btn-primary">查询</button>
             </div>
         </div>
     </div>
 
     <script src="scripts/jquery.js"></script>
     <script src="scripts/layer.js"></script>
+    <script type="text/javascript" src="scripts/moment.js"></script>
+    <script type="text/javascript" src="scripts/daterangepicker.js"></script>
     <script src="scripts/index.js"></script>
 </body>
 </html>
