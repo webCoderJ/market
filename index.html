@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Tigerwit</title>
@@ -7,25 +8,82 @@
     <link rel="stylesheet" type="text/css" media="all" href="styles/daterangepicker.css" />
     <link rel="stylesheet" type="text/css" href="styles/index.css">
 </head>
+
 <body>
-    <div class="market">
-        <div class="nav"><img src="images/logo.png"></div>
-        <div class="title">
-            <div class="tit">市场合作数据查询</div>
-            <div class="sub-tit">博大EDM 22XN</div>
+    <div class="market" id="market">
+        <header>
+            <div class="nav"><img src="images/logo.png"></div>
+            <div class="title">
+                <h1>市场合作数据查询</h1>
+                <h2>博大EDM 22XN</h2>
+            </div>
             <div class="select-form">
                 <span>注册起止时间</span>
-                <input type="text" id="demo" class="form-control" placeholder="YYYY-MM-DD">
-                <input type="text" class="form-control" placeholder="输入关键字查询">
-                <button class="btn btn-primary">查询</button>
+                <input type="text" class="form-control" id="daterangepicker" placeholder="YYYY-MM-DD">
+                <input type="text" class="form-control" id="keywords" placeholder="输入关键字查询">
+                <button class="btn btn-primary" id="query-btn">查询</button>
             </div>
-        </div>
+        </header>
+        <table class="datas">
+            <thead id="datas_header">
+                <tr>
+                    <td>昵称</td>
+                    <td>客户分类</td>
+                    <td>注册地址</td>
+                    <td>注册时间</td>
+                    <td>注册来源</td>
+                </tr>
+            </thead>
+            <tbody id="data_content">
+                <tr>
+                <td></td>
+                <td></td>
+                <td>无数据！</td>
+                <td></td>
+                <td></td>
+                </tr>
+                <!--underscoretemplate-->
+            </tbody>
+        </table>
     </div>
+    <script type="text/template" id="template">
+        <%if(data.length >= 0){%>
+            <% _.each(data, function (item) { %>
+                <tr>
+                    <td>
+                        <%= item.user_name %>
+                    </td>
+                    <td>
+                        <%= item.user_classify || '无'%>
+                    </td>
+                    <td>
+                        <%= item.reg_city || '未知'%>
+                    </td>
+                    <td>
+                        <%= item.register_time || '未知'%>
+                    </td>
+                    <td>
+                        <%= item.contact_job || '无'%>
+                    </td>
+                </tr>
+                <% }) %>
+        <%} else {%>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>无数据！</td>
+                <td></td>
+                <td></td>
+            </tr>
+        <%}%>
 
+    </script>
     <script src="scripts/jquery.js"></script>
+    <script src="scripts/underscore-min.js"></script>
     <script src="scripts/layer.js"></script>
     <script type="text/javascript" src="scripts/moment.js"></script>
     <script type="text/javascript" src="scripts/daterangepicker.js"></script>
     <script src="scripts/index.js"></script>
 </body>
+
 </html>
