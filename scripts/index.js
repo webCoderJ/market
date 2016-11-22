@@ -167,32 +167,26 @@
                 keywords = query[1].val().trim() || '',
                 errorTips = '请选择日期!_请输入查询关键字_数据拉取失败，请重试！'.split('_')
 
-            if (startDate == '' || endDate == '') {
-                layer.msg(errorTips[0], { icon: 5 });
-            } else if (keywords == '') {
-                layer.msg(errorTips[1], { icon: 5 });
-            } else {
-                layer.closeAll();
-                var index = layer.load(1, {
-                    shade: [0.5, 'rgb(0,0,0)'] //0.1透明度的白色背景
-                });
+            layer.closeAll();
+            var index = layer.load(1, {
+                shade: [0.5, 'rgb(0,0,0)'] //0.1透明度的白色背景
+            });
 
-                $.get('/action/public/market/', {
-                    pid: searchPid,
-                    start_date: startDate,
-                    end_date: endDate,
-                    anyway: keywords,
-                }, function(data, status) {
-                    console.log('请求状态--' + status);
-                    console.log('data' + data)
-                    layer.close(index);
-                    if (data.is_succ) {
-                        rendData(data);
-                    } else {
-                        layer.msg(errorTips[3], { icon: 5 });
-                    }
-                })
-            }
+            $.get('/api/public/market/' + searchPid, {
+                start_date: startDate,
+                end_date: endDate,
+                anyway: keywords,
+            }, function(data, status) {
+                console.log('请求状态--' + status);
+                console.log('data' + data)
+                layer.close(index);
+                if (data.is_succ) {
+                    rendData(data);
+                } else {
+                    layer.msg(errorTips[3], { icon: 5 });
+                }
+            })
+
         });
     }())
 
