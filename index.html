@@ -7,6 +7,8 @@
     <link rel="stylesheet" type="text/css" href="styles/layer.css">
     <link rel="stylesheet" type="text/css" media="all" href="styles/daterangepicker.css" />
     <link rel="stylesheet" type="text/css" href="styles/index.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -19,8 +21,8 @@
             </div>
             <div class="select-form">
                 <span>注册起止时间</span>
-                <input type="text" class="form-control" id="daterangepicker" placeholder="YYYY-MM-DD">
-                <input type="text" class="form-control" id="keywords" placeholder="输入关键字查询">
+                <input type="text" id="daterangepicker" placeholder="YYYY-MM-DD">
+                <input type="text" id="keywords" placeholder="输入关键字查询">
                 <button class="btn btn-primary" id="query-btn">查询</button>
             </div>
         </header>
@@ -36,11 +38,11 @@
             </thead>
             <tbody id="data_content">
                 <tr>
-                <td></td>
-                <td></td>
-                <td>无数据！</td>
-                <td></td>
-                <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>无数据！</td>
+                    <td></td>
+                    <td></td>
                 </tr>
                 <!--underscoretemplate-->
             </tbody>
@@ -67,15 +69,15 @@
                     </td>
                 </tr>
                 <% }) %>
-        <%} else {%>
-            <tr>
-                <td></td>
-                <td></td>
-                <td>无数据！</td>
-                <td></td>
-                <td></td>
-            </tr>
-        <%}%>
+                    <%} else {%>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>无数据！</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <%}%>
 
     </script>
     <script src="scripts/jquery.js"></script>
