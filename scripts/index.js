@@ -64,6 +64,7 @@
         $.get("/api/public/market/" + searchPid).then(function(data) {
             layer.closeAll();
             console.info(data);
+            $("#user_name").html(data.username);
             rendData(data);
         }, function(err) {
             layer.closeAll();
@@ -84,7 +85,7 @@
 
         function handle() {
             var startDate = query[0].val().split('--')[0] || '',
-                endDate = query[0].val().split('--')[0] || '',
+                endDate = query[0].val().split('--')[1] || '',
                 keywords = query[1].val().trim() || '',
                 errorTips = '请选择日期!_请输入查询关键字_数据拉取失败，请重试！'.split('_')
 
