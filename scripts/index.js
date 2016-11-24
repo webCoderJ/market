@@ -1,3 +1,4 @@
+;
 (function($) {
     //头部滚动固定
     ;
@@ -73,6 +74,7 @@
     getMarketData();
 
     //查询按钮
+    ;
     (function() {
         var query = "daterangepicker_keywords_query-btn".split('_');
         $.each(query, function(index, item) {
