@@ -64,7 +64,7 @@
         $.get("/api/public/market/" + searchPid).then(function(data) {
             layer.closeAll();
             console.info(data);
-            $("#user_name").html(data.username);
+            $("#user_name").html(data.user_name);
             rendData(data);
         }, function(err) {
             layer.closeAll();
